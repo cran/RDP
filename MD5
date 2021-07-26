@@ -1,12 +1,12 @@
-70fd72343f1d32975126139480c8707a *DESCRIPTION
+3d7a77bc82dc5e326485c262118134c7 *DESCRIPTION
 a6892181c742d67c91932b7a9ae9a1b1 *NAMESPACE
 534dddcf16e07bc77dff7e5003b14017 *R/RDP-package.R
 34a8b761ea02416f2579cf721b32cdda *R/RcppExports.R
-c29a52c4d1fbead9891d0feb6da6b435 *man/RDP-package.Rd
+25051ce9bf5873a61d5df1b2eceedec6 *man/RDP-package.Rd
 c5025ad8b43a53a855e0d3ec4a10c7d8 *man/RamerDouglasPeucker.Rd
 e3d3cb360fbfdb3c6974e14eb5f09870 *src/Makevars
 e3d3cb360fbfdb3c6974e14eb5f09870 *src/Makevars.win
-b76562e1a88c68dafcb72d299e1df130 *src/RamerDouglasPeucker.cpp
+89ca3a95804e8fd86b8cf73cefe1fb62 *src/RamerDouglasPeucker.cpp
 6f358c9c43b55de1ee40d4c6988e83e6 *src/RcppExports.cpp
 be8c94f200a61296bfa381fb42c8f65e *tests/testthat.R
 e4adbe133cad87ea892c1a314f78c493 *tests/testthat/test-RamerDouglasPeucker.R
