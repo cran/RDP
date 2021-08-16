@@ -1,7 +1,21 @@
-test_that("Small RamerDouglasPeucker example", {
+library(zeallot)
+
+test_that("All points are kept when epsilon is zero", {
+    n <- 20
+    c(x, y) %<-% withr::with_seed(1, list(x = sort(runif(n)), y = rnorm(n)))
+
+    expect_equal(RamerDouglasPeucker(x, y, 0), data.frame(x = x, y = y))
+})
+
+
+test_that("Only endpoints are kept when all points are on a line", {
+    n <- 10
+    c(x, a, b) %<-% withr::with_seed(1, list(x = sort(runif(n)), a = rnorm(1), b = rnorm(1)))
+    y <- a * x + b
+
     expect_equal(
-        RamerDouglasPeucker(1:3, 1:3, 0.5),
-        data.frame(x = c(1, 3), y = c(1, 3))
+        RamerDouglasPeucker(x, y, 0.1),
+        data.frame(x = c(x[1], x[n]), y = c(y[1], y[n]))
     )
 })
 
@@ -55,12 +69,18 @@ test_that("Bigger example", {
 })
 
 
+test_that("Error when there are too few points", {
+    expect_error(RamerDouglasPeucker(1, 1, 5), class = "std::invalid_argument")
+    expect_error(RamerDouglasPeucker(numeric(0), numeric(0), 5), class = "std::invalid_argument")
+})
+
+
 test_that("Error when x and y have different lengths", {
     expect_error(RamerDouglasPeucker(1:3, 1:4, 5), class = "std::invalid_argument")
 })
 
 
-test_that("Epsilon should be positive", {
+test_that("Epsilon should be a positive number", {
     expect_error(RamerDouglasPeucker(1:3, 1:3, -1), class = "std::domain_error")
     expect_error(RamerDouglasPeucker(1:3, 1:3, NA_real_), class = "std::domain_error")
 })
